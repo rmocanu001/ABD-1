@@ -8,7 +8,7 @@ namespace MagazinElectronic
 {
     internal class AdminMenu
     {
-        public Action goBack;
+        public Action<void> goBack;
         private void Window_Closed(object sender, EventArgs e)
         {
             goBack();

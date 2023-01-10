@@ -163,6 +163,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminMenu.cs" />
+    <Compile Include="Utils.cs" />
     <Page Include="ButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,8 +190,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Bill.cs">
+      <DependentUpon>MagazinDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategorieProduse.cs">
+      <DependentUpon>MagazinDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Costumer.cs">
+      <DependentUpon>MagazinDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="CreateAccount.xaml.cs">
       <DependentUpon>CreateAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Inventar.cs">
+      <DependentUpon>MagazinDB.tt</DependentUpon>
     </Compile>
     <Compile Include="ListItem.xaml.cs">
       <DependentUpon>ListItem.xaml</DependentUpon>
@@ -202,6 +216,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MagazinDB.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="MagazinDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MagazinDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="MagazinDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -213,7 +232,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Order.cs">
+      <DependentUpon>MagazinDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Product.cs" />
+    <Compile Include="Produse.cs">
+      <DependentUpon>MagazinDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -250,7 +275,13 @@
   <ItemGroup>
     <Content Include="MagazinDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MagazinDB.edmx</DependentUpon>
       <LastGenOutput>MagazinDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MagazinDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MagazinDB.edmx</DependentUpon>
+      <LastGenOutput>MagazinDB.cs</LastGenOutput>
     </Content>
     <Resource Include="Images\photo.png" />
     <Content Include="Images\OIP.png" />

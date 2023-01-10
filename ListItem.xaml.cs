@@ -20,8 +20,9 @@ namespace MagazinElectronic
     public partial class ListItem : Window
     {
 
-       // private Account _account;
-        
+        // private Account _account;
+        public Action goBack;
+
         public ListItem()
         {   
             //_account = account;
