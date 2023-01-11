@@ -21,7 +21,7 @@ namespace MagazinElectronic
 
     public partial class Login : Window
     {
-        private Account _account;
+        private Costumer _account;
         
         public Login()
         {
