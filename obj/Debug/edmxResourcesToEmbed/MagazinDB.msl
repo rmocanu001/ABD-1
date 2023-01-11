@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Magazin_ElectroniceModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="CategorieProduses">
+      <EntityTypeMapping TypeName="Magazin_ElectroniceModel.CategorieProduse">
+        <MappingFragment StoreEntitySet="CategorieProduse">
+          <ScalarProperty Name="IDCategorie" ColumnName="IDCategorie" />
+          <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Costumers">
+      <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Costumer">
+        <MappingFragment StoreEntitySet="Costumer">
+          <ScalarProperty Name="IDCostumer" ColumnName="IDCostumer" />
+          <ScalarProperty Name="login_name" ColumnName="login_name" />
+          <ScalarProperty Name="login_password" ColumnName="login_password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+          <ScalarProperty Name="IDCostumer" ColumnName="IDCostumer" />
+          <ScalarProperty Name="IDProdus" ColumnName="IDProdus" />
+          <ScalarProperty Name="DataPlasareComanda" ColumnName="DataPlasareComanda" />
+          <ScalarProperty Name="Order_quantity" ColumnName="Order_quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produses">
+      <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Produse">
+        <MappingFragment StoreEntitySet="Produse">
+          <ScalarProperty Name="IDProdus" ColumnName="IDProdus" />
+          <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+          <ScalarProperty Name="IDCategorie" ColumnName="IDCategorie" />
+          <ScalarProperty Name="DescriereProdus" ColumnName="DescriereProdus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bills">
+      <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Bill">
+        <MappingFragment StoreEntitySet="Bill">
+          <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+          <ScalarProperty Name="Bill_status" ColumnName="Bill_status" />
+          <ScalarProperty Name="Payment_date" ColumnName="Payment_date" />
+          <ScalarProperty Name="Bill_amount" ColumnName="Bill_amount" />
+          <ScalarProperty Name="DetaliiBill" ColumnName="DetaliiBill" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventars">
+      <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Inventar">
+        <MappingFragment StoreEntitySet="Inventar">
+          <ScalarProperty Name="IDProdus" ColumnName="IDProdus" />
+          <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+          <ScalarProperty Name="PretUnitar" ColumnName="PretUnitar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

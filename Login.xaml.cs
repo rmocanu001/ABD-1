@@ -39,9 +39,9 @@ namespace MagazinElectronic
 
             return false;
         }
-        private void ShowWindow()
+        public void ShowWindow(Window w)
         {
-            this.Show();
+             w.Show();
         }
 
 
@@ -71,7 +71,7 @@ namespace MagazinElectronic
                 if(Authenticate(UsernameLabel.Text.ToString(), PasswordLabel.ToString()))
                 {
                     AdminMenu adminMenu = new AdminMenu();
-                    adminMenu.goBack=this.ShowWindow();
+                    //ShowWindow(this);
                     this.Hide();
 
                 }
