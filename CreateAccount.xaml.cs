@@ -26,24 +26,29 @@ namespace MagazinElectronic
             InitializeComponent();
         }
 
-        public List<Costumer> GetUser(string username , string password)
+        public Costumer GetUser(string username , string password)
         {
             // sql interogation to get data 
 
-            return null;
+            Costumer user = (from u in Utils.context.Costumers
+                        where (u.login_name.Equals(username) && u.login_password.Equals(password))
+                        select u).FirstOrDefault();
+            return user;
+
         }
 
         public void InsertAccount(Costumer account)
         {
             //sql interogation to insert data
            Utils.context.Costumers.Add(account);
+            Utils.context.SaveChanges();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             _account = new Costumer {
                login_name = Username.Text.ToString(),
-              login_password = Password.SecurePassword.ToString(),
+              login_password = Password.Password.ToString(),
                 email =  Email.Text.ToString()
             };
 

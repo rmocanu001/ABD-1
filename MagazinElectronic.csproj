@@ -166,6 +166,13 @@
     <Compile Include="AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Bill.cs" />
+    <Compile Include="CategorieProduse.cs" />
+    <Compile Include="Costumer.cs" />
+    <Compile Include="Inventar.cs" />
+    <Compile Include="MagazinDB.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="Produse.cs" />
     <Compile Include="Utils.cs" />
     <Page Include="AdminMenu.xaml">
       <SubType>Designer</SubType>
@@ -195,20 +202,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Bill.cs">
-      <DependentUpon>MagazinDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CategorieProduse.cs">
-      <DependentUpon>MagazinDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Costumer.cs">
-      <DependentUpon>MagazinDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="CreateAccount.xaml.cs">
       <DependentUpon>CreateAccount.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Inventar.cs">
-      <DependentUpon>MagazinDB.tt</DependentUpon>
     </Compile>
     <Compile Include="ListItem.xaml.cs">
       <DependentUpon>ListItem.xaml</DependentUpon>
@@ -216,34 +211,13 @@
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MagazinDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MagazinDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MagazinDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MagazinDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MagazinDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MagazinDB.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Order.cs">
-      <DependentUpon>MagazinDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Product.cs" />
-    <Compile Include="Produse.cs">
-      <DependentUpon>MagazinDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -261,13 +235,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="MagazinDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MagazinDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="MagazinDB.edmx.diagram">
-      <DependentUpon>MagazinDB.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -278,16 +245,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MagazinDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MagazinDB.edmx</DependentUpon>
-      <LastGenOutput>MagazinDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="MagazinDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MagazinDB.edmx</DependentUpon>
-      <LastGenOutput>MagazinDB.cs</LastGenOutput>
-    </Content>
     <Resource Include="Images\photo.png" />
     <Content Include="Images\OIP.png" />
   </ItemGroup>
