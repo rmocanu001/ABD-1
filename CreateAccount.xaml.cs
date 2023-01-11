@@ -20,32 +20,34 @@ namespace MagazinElectronic
     public partial class CreateAccount : Window
     {
 
-        public Account _account;
+        public Costumer _account;
         public CreateAccount()
         {
             InitializeComponent();
         }
 
-        public List<Account> GetUser(string username , string password)
+        public List<Costumer> GetUser(string username , string password)
         {
             // sql interogation to get data 
 
             return null;
         }
 
-        public void InsertAccount(Account account)
+        public void InsertAccount(Costumer account)
         {
             //sql interogation to insert data
+           Utils.context.Costumers.Add(account);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _account = new Account(
-                Username.Text.ToString(),
-               Password.SecurePassword.ToString()
-            );
+            _account = new Costumer {
+               login_name = Username.Text.ToString(),
+              login_password = Password.SecurePassword.ToString(),
+                email =  Email.Text.ToString()
+            };
 
-            if ( GetUser(_account.Name,_account.Password) == null)
+            if ( GetUser(_account.login_name,_account.login_password) != null)
             {
                 MessageBoxButton button = MessageBoxButton.OKCancel;
                 MessageBoxImage image = MessageBoxImage.Warning;
