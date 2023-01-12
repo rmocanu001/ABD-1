@@ -21,7 +21,7 @@ namespace MagazinElectronic
 
     public partial class Login : Window
     {
-        private Costumer _account;
+        
         
         public Login()
         {
@@ -55,10 +55,6 @@ namespace MagazinElectronic
         
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            //_account = new Account(
-            //    UsernameLabel.Text.ToString(),
-            //    PasswordLabel.SecurePassword.ToString()
-            //);
 
             // sql interogation 
             // if find then move to next Listing Window
@@ -71,9 +67,9 @@ namespace MagazinElectronic
                 if(Authenticate(UsernameLabel.Text.ToString(), PasswordLabel.ToString()))
                 {
                     AdminMenu adminMenu = new AdminMenu();
-                    //ShowWindow(this);
+                    ShowWindow(this);
                     this.Hide();
-
+                    return;
                 }
                 string hashedPass = Utils.ComputeSha256Hash(PasswordLabel.Password);
                 var user = (from u in Utils.context.Costumers
@@ -81,7 +77,7 @@ namespace MagazinElectronic
                             select u).FirstOrDefault();
                 if (user != null)
                 {
-                    ListItem items = new ListItem();
+                    ListItem items = new ListItem(user);
                     items.Show();
                     this.Hide();
                 }

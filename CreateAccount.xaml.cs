@@ -60,7 +60,12 @@ namespace MagazinElectronic
             }
             else
             {   
+
                 InsertAccount(_account);
+                ListItem listItem = new ListItem(_account);
+                listItem.Show();
+                this.Hide();
+
             }
         }
 

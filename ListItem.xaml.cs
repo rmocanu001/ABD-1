@@ -19,15 +19,15 @@ namespace MagazinElectronic
     /// </summary>
     public partial class ListItem : Window
     {
-
+        private Costumer _account;
         // private Account _account;
         public Action goBack;
 
-        public ListItem()
+        public ListItem(Costumer account)
         {   
             //_account = account;
             InitializeComponent();
-
+            _account = account;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
