@@ -8,8 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("magazindb.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("magazindb.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/oip.png")]
 
 
