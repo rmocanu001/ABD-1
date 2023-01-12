@@ -41,7 +41,7 @@ namespace MagazinElectronic
         {
             //sql interogation to insert data
            Utils.context.Costumers.Add(account);
-            Utils.context.SaveChanges();
+           Utils.context.SaveChanges();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

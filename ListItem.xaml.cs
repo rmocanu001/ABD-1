@@ -34,8 +34,10 @@ namespace MagazinElectronic
         {
             string findItem = Searchitem.Text.ToString();
 
-            // sql interogation 
+            // sql interogation
+            var productsList = Utils.context.Produses.ToList().Where(b => b.Denumire == findItem);
 
+            Lista.ItemsSource = productsList; 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
