@@ -5,21 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MagazinElectronic"
         mc:Ignorable="d"
-        Title="ListItem" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Border CornerRadius="10" Grid.RowSpan="2">
-            <Border.Background>
-                <LinearGradientBrush>
-                    <GradientStop Color="#7be9f6" Offset="0.0"/>
-                    <GradientStop Color="#f083da" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
-        <DataGrid x:Name="Lista" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="92,47,168,117" SelectionChanged="DataGrid_SelectionChanged"/>
+        Title="ListItem" Height="600" Width="920" WindowStartupLocation="CenterScreen">
+    <Border Background="#272537"
+            CornerRadius="20">
+        
+            
+    
+        <Grid>
 
-        <Button x:Name="Cart" Content="Cart" HorizontalAlignment="Left" Margin="660,164,0,0" VerticalAlignment="Top" Height="36" Width="81"/>
-        <Button Content="AddToCart" HorizontalAlignment="Left" Margin="660,131,0,0" VerticalAlignment="Top" Click="Button_Click_1" Height="28" Width="81"/>
-        <TextBox x:Name="Searchitem" HorizontalAlignment="Left" Margin="112,361,0,0" TextWrapping="Wrap" Text="Cauta" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Find" HorizontalAlignment="Left" Margin="322,360,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-    </Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="{Binding ClientName, Mode=TwoWay}"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Foreground="White"
+                     FontSize="22"
+                     Margin="20,0,0,0"/>
+
+            <StackPanel Grid.Row="1">
+
+                <RadioButton Content="HI"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+
+                <RadioButton Content="Cart"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Click="Button_Click_1"
+                             Style="{StaticResource MenuButtonTheme}"/>
+
+                <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+
+                
+            </StackPanel>
+            <StackPanel Grid.Column="1" 
+                     >
+
+                <TextBox 
+                     x:Name="Searchitem"  
+                     Width="250"
+                     Height="50"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     Margin="5"
+                     PreviewKeyDown="EnterClick"
+                     Style="{StaticResource ModernTextBox}"/>
+            </StackPanel>
+           
+
+            <DataGrid  Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10" 
+                       x:Name="Lista" 
+                       d:ItemsSource="{d:SampleData ItemCount=5}" 
+                       SelectionChanged="DataGrid_SelectionChanged"
+                       />
+
+        </Grid>
+
+    </Border>
 </Window>

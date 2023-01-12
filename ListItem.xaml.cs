@@ -22,22 +22,20 @@ namespace MagazinElectronic
         private Costumer _account;
         // private Account _account;
         public Action goBack;
-
+        public string ClientName { get ; set; }
         public ListItem(Costumer account)
         {   
             //_account = account;
             InitializeComponent();
+            this.DataContext = this;
             _account = account;
+            ClientName = _account.login_name;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string findItem = Searchitem.Text.ToString();
-
-            // sql interogation
-            var productsList = Utils.context.Produses.ToList().Where(b => b.Denumire == findItem);
-
-            Lista.ItemsSource = productsList; 
+           
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -48,6 +46,23 @@ namespace MagazinElectronic
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void EnterClick(object sender, KeyEventArgs e)
+        {   
+            if(e.Key == Key.Enter)
+            {
+                MessageBox.Show("EOK");
+                string findItem = Searchitem.Text.ToString();
+
+                // sql interogation
+                var productsList = Utils.context.Produses.ToList().Where(b => b.Denumire == findItem);
+
+                Lista.ItemsSource = productsList;
+
+                e.Handled = true;
+            }
+           
         }
     }
 }

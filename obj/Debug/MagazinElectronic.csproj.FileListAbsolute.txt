@@ -508,3 +508,5 @@ C:\Users\stefa\OneDrive\Documents\GitHub\ABD\obj\Debug\MagazinElectronic.csproj.
 C:\Users\stefa\OneDrive\Documents\GitHub\ABD\obj\Debug\MagazinElectronic.csproj.CopyComplete
 C:\Users\stefa\OneDrive\Documents\GitHub\ABD\obj\Debug\MagazinElectronic.exe
 C:\Users\stefa\OneDrive\Documents\GitHub\ABD\obj\Debug\MagazinElectronic.pdb
+C:\Users\stefa\OneDrive\Documents\GitHub\ABD\obj\Debug\MenuButtonTheme.baml
+C:\Users\stefa\OneDrive\Documents\GitHub\ABD\obj\Debug\TextBoxTheme.baml
