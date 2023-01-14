@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MagazinElectronic"
         mc:Ignorable="d"
-        Title="AdminMenu" Height="450" Width="800">
+        Title="AdminMenu" Height="341" Width="428">
     <Grid>
-        
+        <Button x:Name="back_button" Content="BACK" HorizontalAlignment="Left" Margin="336,247,0,0" VerticalAlignment="Top" Width="80" Height="58" Foreground="Black" FontFamily="Italic" FontSize="14" Background="#FFC2C2C2" Click="back_button_Click"/>
+        <Button x:Name="Insert_Produse" Content="Insert PRODUSE" HorizontalAlignment="Left" Margin="98,55,0,0" VerticalAlignment="Top" Width="222" Height="52" Foreground="Black" FontFamily="Italic" FontSize="14" Background="#FFC2C2C2" Click="Insert_Produse_Click" RenderTransformOrigin="-2.626,-2.463"/>
+        <Button x:Name="Insert_Categorii" Content="Insert Categorii" HorizontalAlignment="Left" Margin="98,132,0,0" VerticalAlignment="Top" Width="222" Height="52" Foreground="Black" FontFamily="Italic" FontSize="14" Background="#FFC2C2C2" Click="Insert_Categorie_Click" RenderTransformOrigin="-2.626,-2.463"/>
+        <Button x:Name="Administrare_inventar" Content="INVENTAR" HorizontalAlignment="Left" Margin="98,216,0,0" VerticalAlignment="Top" Width="222" Height="52" Foreground="Black" FontFamily="Italic" FontSize="14" Background="#FFC2C2C2" Click="Administrare_inventar_Click" RenderTransformOrigin="-2.626,-2.463"/>
+
     </Grid>
 </Window>

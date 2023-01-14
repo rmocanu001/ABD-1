@@ -9,7 +9,7 @@ namespace MagazinElectronic
 {
     public class Utils
     {
-        public static MagazinDB context = new MagazinDB();
+        public static Magazin_ElectroniceEntities context = new Magazin_ElectroniceEntities();
         
         public static string ComputeSha256Hash(string rawData)
         {

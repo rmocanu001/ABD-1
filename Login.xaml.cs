@@ -39,9 +39,9 @@ namespace MagazinElectronic
 
             return false;
         }
-        public void ShowWindow(Window w)
+        public void ShowWindow()
         {
-             w.Show();
+             this.Show();
         }
 
 
@@ -58,22 +58,24 @@ namespace MagazinElectronic
 
             // sql interogation 
             // if find then move to next Listing Window
-            if (String.IsNullOrEmpty(UsernameLabel.Text.ToString() ?? PasswordLabel.ToString()))
+            if (String.IsNullOrEmpty(UsernameLabel.Text.ToString() ?? PasswordLabel.Password.ToString()))
             {
                 MessageBox.Show("Fields can't be empty!");
             }
             else
             {
-                if(Authenticate(UsernameLabel.Text.ToString(), PasswordLabel.ToString()))
+                if(Authenticate(UsernameLabel.Text.ToString(), PasswordLabel.Password.ToString()))
                 {
                     AdminMenu adminMenu = new AdminMenu();
-                    ShowWindow(this);
+                    //ShowWindow(this);
+                    adminMenu.Show();
+                    adminMenu.goBack=delegate { ShowWindow(); };
                     this.Hide();
                     return;
                 }
                 string hashedPass = Utils.ComputeSha256Hash(PasswordLabel.Password);
-                var user = (from u in Utils.context.Costumers
-                            where (u.login_name.Equals(UsernameLabel.Text) || u.email.Equals(UsernameLabel.Text)) && u.login_password.Equals(hashedPass)
+                var user = (from u in Utils.context.Costumer
+                            where (u.login_name.Equals(UsernameLabel.Text) && u.login_password.Equals(hashedPass))
                             select u).FirstOrDefault();
                 if (user != null)
                 {

@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Magazin_ElectroniceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Magazin_Electronice.dbo.Bill' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="IDOrder" />
+            <PropertyRef Name="Bill_status" />
+            <PropertyRef Name="Payment_date" />
+            <PropertyRef Name="Bill_amount" />
+          </Key>
+          <Property Name="IDOrder" Type="int" Nullable="false" />
+          <Property Name="Bill_status" Type="bit" Nullable="false" />
+          <Property Name="Payment_date" Type="date" Nullable="false" />
+          <Property Name="Bill_amount" Type="money" Nullable="false" />
+          <Property Name="DetaliiBill" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CategorieProduse">
+          <Key>
+            <PropertyRef Name="IDCategorie" />
+          </Key>
+          <Property Name="IDCategorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Denumire" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Costumer">
+          <Key>
+            <PropertyRef Name="IDCostumer" />
+          </Key>
+          <Property Name="IDCostumer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="login_password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Magazin_Electronice.dbo.Inventar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Inventar">
+          <Key>
+            <PropertyRef Name="IDProdus" />
+            <PropertyRef Name="Cantitate" />
+            <PropertyRef Name="PretUnitar" />
+          </Key>
+          <Property Name="IDProdus" Type="int" Nullable="false" />
+          <Property Name="Cantitate" Type="int" Nullable="false" />
+          <Property Name="PretUnitar" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="IDOrder" />
+          </Key>
+          <Property Name="IDOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDCostumer" Type="int" Nullable="false" />
+          <Property Name="IDProdus" Type="int" Nullable="false" />
+          <Property Name="DataPlasareComanda" Type="date" Nullable="false" />
+          <Property Name="Order_quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produse">
+          <Key>
+            <PropertyRef Name="IDProdus" />
+          </Key>
+          <Property Name="IDProdus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Denumire" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDCategorie" Type="int" Nullable="false" />
+          <Property Name="DescriereProdus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__Bill__IDOrder__300424B4">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="IDOrder" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="IDOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inventar__IDProd__2E1BDC42">
+          <End Role="Produse" Type="Self.Produse" Multiplicity="1" />
+          <End Role="Inventar" Type="Self.Inventar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produse">
+              <PropertyRef Name="IDProdus" />
+            </Principal>
+            <Dependent Role="Inventar">
+              <PropertyRef Name="IDProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__IDCostum__2B3F6F97">
+          <End Role="Costumer" Type="Self.Costumer" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Costumer">
+              <PropertyRef Name="IDCostumer" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="IDCostumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__IDProdus__2C3393D0">
+          <End Role="Produse" Type="Self.Produse" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produse">
+              <PropertyRef Name="IDProdus" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="IDProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Produse__IDCateg__286302EC">
+          <End Role="CategorieProduse" Type="Self.CategorieProduse" Multiplicity="1" />
+          <End Role="Produse" Type="Self.Produse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategorieProduse">
+              <PropertyRef Name="IDCategorie" />
+            </Principal>
+            <Dependent Role="Produse">
+              <PropertyRef Name="IDCategorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Magazin_ElectroniceModelStoreContainer">
+          <EntitySet Name="CategorieProduse" EntityType="Self.CategorieProduse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Costumer" EntityType="Self.Costumer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produse" EntityType="Self.Produse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bill" EntityType="Self.Bill" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Bill].[IDOrder] AS [IDOrder], 
+    [Bill].[Bill_status] AS [Bill_status], 
+    [Bill].[Payment_date] AS [Payment_date], 
+    [Bill].[Bill_amount] AS [Bill_amount], 
+    [Bill].[DetaliiBill] AS [DetaliiBill]
+    FROM [dbo].[Bill] AS [Bill]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Inventar" EntityType="Self.Inventar" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Inventar].[IDProdus] AS [IDProdus], 
+    [Inventar].[Cantitate] AS [Cantitate], 
+    [Inventar].[PretUnitar] AS [PretUnitar]
+    FROM [dbo].[Inventar] AS [Inventar]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Bill__IDOrder__300424B4" Association="Self.FK__Bill__IDOrder__300424B4">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Bill" EntitySet="Bill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inventar__IDProd__2E1BDC42" Association="Self.FK__Inventar__IDProd__2E1BDC42">
+            <End Role="Produse" EntitySet="Produse" />
+            <End Role="Inventar" EntitySet="Inventar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__IDCostum__2B3F6F97" Association="Self.FK__Orders__IDCostum__2B3F6F97">
+            <End Role="Costumer" EntitySet="Costumer" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__IDProdus__2C3393D0" Association="Self.FK__Orders__IDProdus__2C3393D0">
+            <End Role="Produse" EntitySet="Produse" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Produse__IDCateg__286302EC" Association="Self.FK__Produse__IDCateg__286302EC">
+            <End Role="CategorieProduse" EntitySet="CategorieProduse" />
+            <End Role="Produse" EntitySet="Produse" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Magazin_ElectroniceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CategorieProduse">
+          <Key>
+            <PropertyRef Name="IDCategorie" />
+          </Key>
+          <Property Name="IDCategorie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Denumire" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Produses" Relationship="Self.FK__Produse__IDCateg__286302EC" FromRole="CategorieProduse" ToRole="Produse" />
+        </EntityType>
+        <EntityType Name="Costumer">
+          <Key>
+            <PropertyRef Name="IDCostumer" />
+          </Key>
+          <Property Name="IDCostumer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="login_password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__IDCostum__2B3F6F97" FromRole="Costumer" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="IDOrder" />
+          </Key>
+          <Property Name="IDOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDCostumer" Type="Int32" Nullable="false" />
+          <Property Name="IDProdus" Type="Int32" Nullable="false" />
+          <Property Name="DataPlasareComanda" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Order_quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Costumer" Relationship="Self.FK__Orders__IDCostum__2B3F6F97" FromRole="Orders" ToRole="Costumer" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__IDOrder__300424B4" FromRole="Orders" ToRole="Bill" />
+          <NavigationProperty Name="Produse" Relationship="Self.FK__Orders__IDProdus__2C3393D0" FromRole="Orders" ToRole="Produse" />
+        </EntityType>
+        <EntityType Name="Produse">
+          <Key>
+            <PropertyRef Name="IDProdus" />
+          </Key>
+          <Property Name="IDProdus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Denumire" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDCategorie" Type="Int32" Nullable="false" />
+          <Property Name="DescriereProdus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CategorieProduse" Relationship="Self.FK__Produse__IDCateg__286302EC" FromRole="Produse" ToRole="CategorieProduse" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__IDProdus__2C3393D0" FromRole="Produse" ToRole="Orders" />
+          <NavigationProperty Name="Inventars" Relationship="Self.FK__Inventar__IDProd__2E1BDC42" FromRole="Produse" ToRole="Inventar" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="IDOrder" />
+            <PropertyRef Name="Bill_status" />
+            <PropertyRef Name="Payment_date" />
+            <PropertyRef Name="Bill_amount" />
+          </Key>
+          <Property Name="IDOrder" Type="Int32" Nullable="false" />
+          <Property Name="Bill_status" Type="Boolean" Nullable="false" />
+          <Property Name="Payment_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Bill_amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="DetaliiBill" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__Bill__IDOrder__300424B4" FromRole="Bill" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Inventar">
+          <Key>
+            <PropertyRef Name="IDProdus" />
+            <PropertyRef Name="Cantitate" />
+            <PropertyRef Name="PretUnitar" />
+          </Key>
+          <Property Name="IDProdus" Type="Int32" Nullable="false" />
+          <Property Name="Cantitate" Type="Int32" Nullable="false" />
+          <Property Name="PretUnitar" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Produse" Relationship="Self.FK__Inventar__IDProd__2E1BDC42" FromRole="Inventar" ToRole="Produse" />
+        </EntityType>
+        <Association Name="FK__Produse__IDCateg__286302EC">
+          <End Role="CategorieProduse" Type="Self.CategorieProduse" Multiplicity="1" />
+          <End Role="Produse" Type="Self.Produse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategorieProduse">
+              <PropertyRef Name="IDCategorie" />
+            </Principal>
+            <Dependent Role="Produse">
+              <PropertyRef Name="IDCategorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__IDCostum__2B3F6F97">
+          <End Role="Costumer" Type="Self.Costumer" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Costumer">
+              <PropertyRef Name="IDCostumer" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="IDCostumer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bill__IDOrder__300424B4">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="IDOrder" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="IDOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__IDProdus__2C3393D0">
+          <End Role="Produse" Type="Self.Produse" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produse">
+              <PropertyRef Name="IDProdus" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="IDProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inventar__IDProd__2E1BDC42">
+          <End Role="Produse" Type="Self.Produse" Multiplicity="1" />
+          <End Role="Inventar" Type="Self.Inventar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produse">
+              <PropertyRef Name="IDProdus" />
+            </Principal>
+            <Dependent Role="Inventar">
+              <PropertyRef Name="IDProdus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Magazin_ElectroniceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CategorieProduses" EntityType="Self.CategorieProduse" />
+          <EntitySet Name="Costumers" EntityType="Self.Costumer" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Produses" EntityType="Self.Produse" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Bills" EntityType="Self.Bill" />
+          <EntitySet Name="Inventars" EntityType="Self.Inventar" />
+          <AssociationSet Name="FK__Produse__IDCateg__286302EC" Association="Self.FK__Produse__IDCateg__286302EC">
+            <End Role="CategorieProduse" EntitySet="CategorieProduses" />
+            <End Role="Produse" EntitySet="Produses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__IDCostum__2B3F6F97" Association="Self.FK__Orders__IDCostum__2B3F6F97">
+            <End Role="Costumer" EntitySet="Costumers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bill__IDOrder__300424B4" Association="Self.FK__Bill__IDOrder__300424B4">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__IDProdus__2C3393D0" Association="Self.FK__Orders__IDProdus__2C3393D0">
+            <End Role="Produse" EntitySet="Produses" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inventar__IDProd__2E1BDC42" Association="Self.FK__Inventar__IDProd__2E1BDC42">
+            <End Role="Produse" EntitySet="Produses" />
+            <End Role="Inventar" EntitySet="Inventars" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Magazin_ElectroniceModelStoreContainer" CdmEntityContainer="Magazin_ElectroniceEntities">
+          <EntitySetMapping Name="CategorieProduses">
+            <EntityTypeMapping TypeName="Magazin_ElectroniceModel.CategorieProduse">
+              <MappingFragment StoreEntitySet="CategorieProduse">
+                <ScalarProperty Name="IDCategorie" ColumnName="IDCategorie" />
+                <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Costumers">
+            <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Costumer">
+              <MappingFragment StoreEntitySet="Costumer">
+                <ScalarProperty Name="IDCostumer" ColumnName="IDCostumer" />
+                <ScalarProperty Name="login_name" ColumnName="login_name" />
+                <ScalarProperty Name="login_password" ColumnName="login_password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+                <ScalarProperty Name="IDCostumer" ColumnName="IDCostumer" />
+                <ScalarProperty Name="IDProdus" ColumnName="IDProdus" />
+                <ScalarProperty Name="DataPlasareComanda" ColumnName="DataPlasareComanda" />
+                <ScalarProperty Name="Order_quantity" ColumnName="Order_quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produses">
+            <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Produse">
+              <MappingFragment StoreEntitySet="Produse">
+                <ScalarProperty Name="IDProdus" ColumnName="IDProdus" />
+                <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+                <ScalarProperty Name="IDCategorie" ColumnName="IDCategorie" />
+                <ScalarProperty Name="DescriereProdus" ColumnName="DescriereProdus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Magazin_ElectroniceModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bills">
+            <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Bill">
+              <MappingFragment StoreEntitySet="Bill">
+                <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+                <ScalarProperty Name="Bill_status" ColumnName="Bill_status" />
+                <ScalarProperty Name="Payment_date" ColumnName="Payment_date" />
+                <ScalarProperty Name="Bill_amount" ColumnName="Bill_amount" />
+                <ScalarProperty Name="DetaliiBill" ColumnName="DetaliiBill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventars">
+            <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Inventar">
+              <MappingFragment StoreEntitySet="Inventar">
+                <ScalarProperty Name="IDProdus" ColumnName="IDProdus" />
+                <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+                <ScalarProperty Name="PretUnitar" ColumnName="PretUnitar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -56,7 +56,7 @@ namespace MagazinElectronic
                 string findItem = Searchitem.Text.ToString();
 
                 // sql interogation
-                var productsList = Utils.context.Produses.ToList().Where(b => b.Denumire == findItem);
+                var productsList = Utils.context.Produse.ToList().Where(b => b.Denumire == findItem);
 
                 Lista.ItemsSource = productsList;
 

@@ -30,7 +30,7 @@ namespace MagazinElectronic
         {
             // sql interogation to get data 
 
-            Costumer user = (from u in Utils.context.Costumers
+            Costumer user = (from u in Utils.context.Costumer
                         where (u.login_name.Equals(username) && u.login_password.Equals(password))
                         select u).FirstOrDefault();
             return user;
@@ -40,7 +40,7 @@ namespace MagazinElectronic
         public void InsertAccount(Costumer account)
         {
             //sql interogation to insert data
-           Utils.context.Costumers.Add(account);
+           Utils.context.Costumer.Add(account);
            Utils.context.SaveChanges();
         }
 

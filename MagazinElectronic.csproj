@@ -166,13 +166,51 @@
     <Compile Include="AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Bill.cs" />
-    <Compile Include="CategorieProduse.cs" />
-    <Compile Include="Costumer.cs" />
-    <Compile Include="Inventar.cs" />
-    <Compile Include="MagazinDB.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="Produse.cs" />
+    <Compile Include="Bill.cs">
+      <DependentUpon>Magazin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategorieProduse.cs">
+      <DependentUpon>Magazin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Costumer.cs">
+      <DependentUpon>Magazin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsertCategorie.xaml.cs">
+      <DependentUpon>InsertCategorie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InsertProduse.xaml.cs">
+      <DependentUpon>InsertProduse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Inventar.cs">
+      <DependentUpon>Magazin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventar.xaml.cs">
+      <DependentUpon>Inventar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Magazin.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Magazin.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Magazin.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Magazin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Magazin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Magazin.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>Magazin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produse.cs">
+      <DependentUpon>Magazin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Magazin.tt</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
     <Page Include="AdminMenu.xaml">
       <SubType>Designer</SubType>
@@ -183,6 +221,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CreateAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InsertCategorie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InsertProduse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Inventar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -242,6 +292,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Magazin.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Magazin.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Magazin.edmx.diagram">
+      <DependentUpon>Magazin.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -252,6 +309,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Magazin.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Magazin.edmx</DependentUpon>
+      <LastGenOutput>Magazin.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Magazin.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Magazin.edmx</DependentUpon>
+      <LastGenOutput>Magazin.cs</LastGenOutput>
+    </Content>
     <Resource Include="Images\photo.png" />
     <Content Include="Images\OIP.png" />
   </ItemGroup>
