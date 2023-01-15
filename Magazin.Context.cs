@@ -29,8 +29,7 @@ namespace MagazinElectronic
         public virtual DbSet<Costumer> Costumer { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Produse> Produse { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagram { get; set; }
-        public virtual DbSet<Bill> Bill { get; set; }
         public virtual DbSet<Inventar> Inventar { get; set; }
+        public virtual DbSet<Bill> Bill { get; set; }
     }
 }

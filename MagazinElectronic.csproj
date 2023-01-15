@@ -214,9 +214,6 @@
     <Compile Include="Produse.cs">
       <DependentUpon>Magazin.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>Magazin.tt</DependentUpon>
-    </Compile>
     <Compile Include="Utils.cs" />
     <Page Include="AdminMenu.xaml">
       <SubType>Designer</SubType>

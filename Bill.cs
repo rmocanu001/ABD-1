@@ -14,6 +14,7 @@ namespace MagazinElectronic
     
     public partial class Bill
     {
+        public int IDBill { get; set; }
         public int IDOrder { get; set; }
         public bool Bill_status { get; set; }
         public System.DateTime Payment_date { get; set; }

@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< Updated upstream
 C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\obj\Debug\
+=======
+D:\anul 3\ABD\MagazinElectronic\ABD\obj\Debug\
+>>>>>>> Stashed changes
 MagazinElectronic
 none
 false
 DEBUG;TRACE
+<<<<<<< Updated upstream
 C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\App.xaml
 13-532259286
 3-318357352
 26-1851092695
 51188026911
 AdminMenu.xaml;ButtonTheme.xaml;Cart.xaml;CreateAccount.xaml;InsertCategorie.xaml;InsertProduse.xaml;Inventar.xaml;ItemSelected.xaml;ListItem.xaml;Login.xaml;MainWindow.xaml;MenuButtonTheme.xaml;TextBoxTheme.xaml;
+=======
+D:\anul 3\ABD\MagazinElectronic\ABD\App.xaml
+111405933002
+3-318357352
+23-83927639
+511127827209
+AdminMenu.xaml;ButtonTheme.xaml;CreateAccount.xaml;InsertCategorie.xaml;InsertProduse.xaml;Inventar.xaml;ListItem.xaml;Login.xaml;MainWindow.xaml;MenuButtonTheme.xaml;TextBoxTheme.xaml;
+>>>>>>> Stashed changes
 
 True
 

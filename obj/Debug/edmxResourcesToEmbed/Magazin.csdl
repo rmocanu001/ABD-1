@@ -28,8 +28,8 @@
     <Property Name="DataPlasareComanda" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Order_quantity" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Costumer" Relationship="Self.FK__Orders__IDCostum__2B3F6F97" FromRole="Orders" ToRole="Costumer" />
-    <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__IDOrder__300424B4" FromRole="Orders" ToRole="Bill" />
     <NavigationProperty Name="Produse" Relationship="Self.FK__Orders__IDProdus__2C3393D0" FromRole="Orders" ToRole="Produse" />
+    <NavigationProperty Name="Bills" Relationship="Magazin_ElectroniceModel.FK__Bill__IDOrder__31EC6D26" FromRole="Order" ToRole="Bill" />
   </EntityType>
   <EntityType Name="Produse">
     <Key>
@@ -43,40 +43,15 @@
     <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__IDProdus__2C3393D0" FromRole="Produse" ToRole="Orders" />
     <NavigationProperty Name="Inventars" Relationship="Self.FK__Inventar__IDProd__2E1BDC42" FromRole="Produse" ToRole="Inventar" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="Bill">
-    <Key>
-      <PropertyRef Name="IDOrder" />
-      <PropertyRef Name="Bill_status" />
-      <PropertyRef Name="Payment_date" />
-      <PropertyRef Name="Bill_amount" />
-    </Key>
-    <Property Name="IDOrder" Type="Int32" Nullable="false" />
-    <Property Name="Bill_status" Type="Boolean" Nullable="false" />
-    <Property Name="Payment_date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Bill_amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="DetaliiBill" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Order" Relationship="Self.FK__Bill__IDOrder__300424B4" FromRole="Bill" ToRole="Orders" />
-  </EntityType>
   <EntityType Name="Inventar">
     <Key>
-      <PropertyRef Name="IDProdus" />
-      <PropertyRef Name="Cantitate" />
-      <PropertyRef Name="PretUnitar" />
+      <PropertyRef Name="IDInventar" />
     </Key>
     <Property Name="IDProdus" Type="Int32" Nullable="false" />
     <Property Name="Cantitate" Type="Int32" Nullable="false" />
     <Property Name="PretUnitar" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <NavigationProperty Name="Produse" Relationship="Self.FK__Inventar__IDProd__2E1BDC42" FromRole="Inventar" ToRole="Produse" />
+    <Property Name="IDInventar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <Association Name="FK__Produse__IDCateg__286302EC">
     <End Role="CategorieProduse" Type="Self.CategorieProduse" Multiplicity="1" />
@@ -99,18 +74,6 @@
       </Principal>
       <Dependent Role="Orders">
         <PropertyRef Name="IDCostumer" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Bill__IDOrder__300424B4">
-    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
-    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Orders">
-        <PropertyRef Name="IDOrder" />
-      </Principal>
-      <Dependent Role="Bill">
-        <PropertyRef Name="IDOrder" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -143,8 +106,6 @@
     <EntitySet Name="Costumers" EntityType="Self.Costumer" />
     <EntitySet Name="Orders" EntityType="Self.Order" />
     <EntitySet Name="Produses" EntityType="Self.Produse" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="Bills" EntityType="Self.Bill" />
     <EntitySet Name="Inventars" EntityType="Self.Inventar" />
     <AssociationSet Name="FK__Produse__IDCateg__286302EC" Association="Self.FK__Produse__IDCateg__286302EC">
       <End Role="CategorieProduse" EntitySet="CategorieProduses" />
@@ -154,10 +115,6 @@
       <End Role="Costumer" EntitySet="Costumers" />
       <End Role="Orders" EntitySet="Orders" />
     </AssociationSet>
-    <AssociationSet Name="FK__Bill__IDOrder__300424B4" Association="Self.FK__Bill__IDOrder__300424B4">
-      <End Role="Orders" EntitySet="Orders" />
-      <End Role="Bill" EntitySet="Bills" />
-    </AssociationSet>
     <AssociationSet Name="FK__Orders__IDProdus__2C3393D0" Association="Self.FK__Orders__IDProdus__2C3393D0">
       <End Role="Produse" EntitySet="Produses" />
       <End Role="Orders" EntitySet="Orders" />
@@ -166,5 +123,34 @@
       <End Role="Produse" EntitySet="Produses" />
       <End Role="Inventar" EntitySet="Inventars" />
     </AssociationSet>
+    <EntitySet Name="Bills" EntityType="Magazin_ElectroniceModel.Bill" />
+    <AssociationSet Name="FK__Bill__IDOrder__31EC6D26" Association="Magazin_ElectroniceModel.FK__Bill__IDOrder__31EC6D26">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="IDBill" />
+    </Key>
+    <Property Name="IDBill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDOrder" Type="Int32" Nullable="false" />
+    <Property Name="Bill_status" Type="Boolean" Nullable="false" />
+    <Property Name="Payment_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Bill_amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="DetaliiBill" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Order" Relationship="Magazin_ElectroniceModel.FK__Bill__IDOrder__31EC6D26" FromRole="Bill" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK__Bill__IDOrder__31EC6D26">
+    <End Type="Magazin_ElectroniceModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="Magazin_ElectroniceModel.Bill" Role="Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="IDOrder" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="IDOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

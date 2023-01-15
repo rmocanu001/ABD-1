@@ -9,14 +9,13 @@
         <EntityTypeShape EntityType="Magazin_ElectroniceModel.Costumer" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Magazin_ElectroniceModel.Order" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Magazin_ElectroniceModel.Produse" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Magazin_ElectroniceModel.sysdiagram" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Magazin_ElectroniceModel.Bill" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Magazin_ElectroniceModel.Inventar" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
         <AssociationConnector Association="Magazin_ElectroniceModel.FK__Produse__IDCateg__286302EC" ManuallyRouted="false" />
         <AssociationConnector Association="Magazin_ElectroniceModel.FK__Orders__IDCostum__2B3F6F97" ManuallyRouted="false" />
-        <AssociationConnector Association="Magazin_ElectroniceModel.FK__Bill__IDOrder__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="Magazin_ElectroniceModel.FK__Orders__IDProdus__2C3393D0" ManuallyRouted="false" />
         <AssociationConnector Association="Magazin_ElectroniceModel.FK__Inventar__IDProd__2E1BDC42" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Magazin_ElectroniceModel.Bill" Width="1.5" PointX="7.5" PointY="3.625" />
+        <AssociationConnector Association="Magazin_ElectroniceModel.FK__Bill__IDOrder__31EC6D26" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

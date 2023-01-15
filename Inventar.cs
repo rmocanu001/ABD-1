@@ -17,6 +17,7 @@ namespace MagazinElectronic
         public int IDProdus { get; set; }
         public int Cantitate { get; set; }
         public decimal PretUnitar { get; set; }
+        public int IDInventar { get; set; }
     
         public virtual Produse Produse { get; set; }
     }

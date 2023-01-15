@@ -27,8 +27,8 @@ namespace MagazinElectronic
         public int Order_quantity { get; set; }
     
         public virtual Costumer Costumer { get; set; }
+        public virtual Produse Produse { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bill> Bills { get; set; }
-        public virtual Produse Produse { get; set; }
     }
 }

@@ -1,14 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Magazin_ElectroniceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'Magazin_Electronice.dbo.Bill' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Bill">
     <Key>
-      <PropertyRef Name="IDOrder" />
-      <PropertyRef Name="Bill_status" />
-      <PropertyRef Name="Payment_date" />
-      <PropertyRef Name="Bill_amount" />
+      <PropertyRef Name="IDBill" />
     </Key>
+    <Property Name="IDBill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDOrder" Type="int" Nullable="false" />
     <Property Name="Bill_status" Type="bit" Nullable="false" />
     <Property Name="Payment_date" Type="date" Nullable="false" />
@@ -31,14 +27,11 @@ warning 6002: The table/view 'Magazin_Electronice.dbo.Bill' does not have a prim
     <Property Name="login_password" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'Magazin_Electronice.dbo.Inventar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Inventar">
     <Key>
-      <PropertyRef Name="IDProdus" />
-      <PropertyRef Name="Cantitate" />
-      <PropertyRef Name="PretUnitar" />
+      <PropertyRef Name="IDInventar" />
     </Key>
+    <Property Name="IDInventar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDProdus" Type="int" Nullable="false" />
     <Property Name="Cantitate" Type="int" Nullable="false" />
     <Property Name="PretUnitar" Type="money" Nullable="false" />
@@ -62,17 +55,7 @@ warning 6002: The table/view 'Magazin_Electronice.dbo.Inventar' does not have a 
     <Property Name="IDCategorie" Type="int" Nullable="false" />
     <Property Name="DescriereProdus" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
-  <Association Name="FK__Bill__IDOrder__300424B4">
+  <Association Name="FK__Bill__IDOrder__31EC6D26">
     <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
     <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
     <ReferentialConstraint>
@@ -84,7 +67,7 @@ warning 6002: The table/view 'Magazin_Electronice.dbo.Inventar' does not have a 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Inventar__IDProd__2E1BDC42">
+  <Association Name="FK__Inventar__IDProd__2F10007B">
     <End Role="Produse" Type="Self.Produse" Multiplicity="1" />
     <End Role="Inventar" Type="Self.Inventar" Multiplicity="*" />
     <ReferentialConstraint>
@@ -133,32 +116,17 @@ warning 6002: The table/view 'Magazin_Electronice.dbo.Inventar' does not have a 
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="Magazin_ElectroniceModelStoreContainer">
+    <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CategorieProduse" EntityType="Self.CategorieProduse" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Costumer" EntityType="Self.Costumer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventar" EntityType="Self.Inventar" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Produse" EntityType="Self.Produse" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Bill" EntityType="Self.Bill" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Bill].[IDOrder] AS [IDOrder], 
-    [Bill].[Bill_status] AS [Bill_status], 
-    [Bill].[Payment_date] AS [Payment_date], 
-    [Bill].[Bill_amount] AS [Bill_amount], 
-    [Bill].[DetaliiBill] AS [DetaliiBill]
-    FROM [dbo].[Bill] AS [Bill]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Inventar" EntityType="Self.Inventar" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Inventar].[IDProdus] AS [IDProdus], 
-    [Inventar].[Cantitate] AS [Cantitate], 
-    [Inventar].[PretUnitar] AS [PretUnitar]
-    FROM [dbo].[Inventar] AS [Inventar]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="FK__Bill__IDOrder__300424B4" Association="Self.FK__Bill__IDOrder__300424B4">
+    <AssociationSet Name="FK__Bill__IDOrder__31EC6D26" Association="Self.FK__Bill__IDOrder__31EC6D26">
       <End Role="Orders" EntitySet="Orders" />
       <End Role="Bill" EntitySet="Bill" />
     </AssociationSet>
-    <AssociationSet Name="FK__Inventar__IDProd__2E1BDC42" Association="Self.FK__Inventar__IDProd__2E1BDC42">
+    <AssociationSet Name="FK__Inventar__IDProd__2F10007B" Association="Self.FK__Inventar__IDProd__2F10007B">
       <End Role="Produse" EntitySet="Produse" />
       <End Role="Inventar" EntitySet="Inventar" />
     </AssociationSet>

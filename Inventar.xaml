@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MagazinElectronic"
         mc:Ignorable="d"
-        Title="Inventar" Height="450" Width="800">
+        Title="Inventar" Height="410" Width="600">
     <Grid>
-        
+        <Button x:Name="Insert_button" Content="Update" HorizontalAlignment="Left" Margin="495,315,0,0" VerticalAlignment="Top" Width="80" Height="58" Foreground="Black" FontFamily="Italic" FontSize="14" Background="#FFC2C2C2" Click="Insert_button_Click"/>
+        <ComboBox x:Name="CatBox" HorizontalAlignment="Left" Margin="226,37,0,0" VerticalAlignment="Top" Width="274" Height="28" SelectionChanged="CatBox_SelectionChanged"></ComboBox>
+        <Label Content="Categorie:" HorizontalAlignment="Left" Margin="81,27,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <ComboBox x:Name="ProdBox" Margin="226,117,100,0" VerticalAlignment="Top" Width="274" Height="28" />
+        <Label Content="Produse:" HorizontalAlignment="Left" Margin="81,107,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Cantitate:" HorizontalAlignment="Left" Margin="81,197,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Pret:" HorizontalAlignment="Left" Margin="81,291,0,0" VerticalAlignment="Top" FontSize="18" Width="79"/>
+        <TextBox x:Name="PretText" Margin="226,295,274,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="30" FontSize="14" TextAlignment="Center"/>
+        <TextBox x:Name="CantitateText" Margin="226,201,274,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="30" FontSize="14" TextAlignment="Center"/>
+
     </Grid>
 </Window>

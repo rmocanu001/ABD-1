@@ -40,34 +40,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="Magazin_ElectroniceModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
+    <EntitySetMapping Name="Inventars">
+      <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Inventar">
+        <MappingFragment StoreEntitySet="Inventar">
+          <ScalarProperty Name="IDInventar" ColumnName="IDInventar" />
+          <ScalarProperty Name="IDProdus" ColumnName="IDProdus" />
+          <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+          <ScalarProperty Name="PretUnitar" ColumnName="PretUnitar" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Bills">
       <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Bill">
         <MappingFragment StoreEntitySet="Bill">
-          <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
-          <ScalarProperty Name="Bill_status" ColumnName="Bill_status" />
-          <ScalarProperty Name="Payment_date" ColumnName="Payment_date" />
-          <ScalarProperty Name="Bill_amount" ColumnName="Bill_amount" />
           <ScalarProperty Name="DetaliiBill" ColumnName="DetaliiBill" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Inventars">
-      <EntityTypeMapping TypeName="Magazin_ElectroniceModel.Inventar">
-        <MappingFragment StoreEntitySet="Inventar">
-          <ScalarProperty Name="IDProdus" ColumnName="IDProdus" />
-          <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
-          <ScalarProperty Name="PretUnitar" ColumnName="PretUnitar" />
+          <ScalarProperty Name="Bill_amount" ColumnName="Bill_amount" />
+          <ScalarProperty Name="Payment_date" ColumnName="Payment_date" />
+          <ScalarProperty Name="Bill_status" ColumnName="Bill_status" />
+          <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+          <ScalarProperty Name="IDBill" ColumnName="IDBill" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
