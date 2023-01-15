@@ -56,8 +56,15 @@ namespace MagazinElectronic
                 string findItem = SearchItem.Text.ToString();
 
                 // sql interogation
-                
+
                 var productsList = Utils.context.Produse.Where(b => b.Denumire.Contains(findItem)).ToList();
+
+                //var productsList =
+                //        from u in Utils.context.Produse
+                //        join i in Utils.context.Inventar on u.Inventars equals i
+                //        where u.Denumire.Contains(findItem)
+                //        select new { u.Denumire, u.CategorieProduse, };
+                   
    
                 Lista.ItemsSource = productsList.ToList();
 
@@ -73,8 +80,18 @@ namespace MagazinElectronic
 
             if(Lista.SelectedItem != null)
             {
-                MessageBox.Show("Merge");
+                Produse produs = (Produse)Lista.Items.GetItemAt(currentRow);
+                ItemSelected itemSelected = new ItemSelected(ProduseList, produs);
+                itemSelected.Show();
+
             }
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            Cart cart = new Cart(ProduseList);
+            cart.Show();
+
         }
     }
 }

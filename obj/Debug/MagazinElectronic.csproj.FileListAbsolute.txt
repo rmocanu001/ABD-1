@@ -788,3 +788,7 @@ C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\obj\Debug\MagazinElectronic.cspro
 C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\obj\Debug\MagazinElectronic.csproj.CopyComplete
 C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\obj\Debug\MagazinElectronic.exe
 C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\obj\Debug\MagazinElectronic.pdb
+C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\obj\Debug\ItemSelected.g.cs
+C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\obj\Debug\ItemSelected.baml
+C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\obj\Debug\Cart.g.cs
+C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\obj\Debug\Cart.baml

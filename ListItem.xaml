@@ -44,7 +44,7 @@
                              Foreground="White"
                              FontSize="14"
                              Click="Button_Click_1"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"/>
 
                 <RadioButton Content="Home"
                              Height="50"

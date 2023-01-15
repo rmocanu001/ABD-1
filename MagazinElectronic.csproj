@@ -169,6 +169,9 @@
     <Compile Include="Bill.cs">
       <DependentUpon>Magazin.tt</DependentUpon>
     </Compile>
+    <Compile Include="Cart.xaml.cs">
+      <DependentUpon>Cart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CategorieProduse.cs">
       <DependentUpon>Magazin.tt</DependentUpon>
     </Compile>
@@ -186,6 +189,9 @@
     </Compile>
     <Compile Include="Inventar.xaml.cs">
       <DependentUpon>Inventar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ItemSelected.xaml.cs">
+      <DependentUpon>ItemSelected.xaml</DependentUpon>
     </Compile>
     <Compile Include="Magazin.Context.cs">
       <AutoGen>True</AutoGen>
@@ -220,6 +226,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Cart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CreateAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -233,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Inventar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ItemSelected.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\App.xaml
-111405933002
+13-532259286
 3-318357352
-23-1961604605
+25230995923
 51188026911
-AdminMenu.xaml;ButtonTheme.xaml;CreateAccount.xaml;InsertCategorie.xaml;InsertProduse.xaml;Inventar.xaml;ListItem.xaml;Login.xaml;MainWindow.xaml;MenuButtonTheme.xaml;TextBoxTheme.xaml;
+AdminMenu.xaml;ButtonTheme.xaml;Cart.xaml;CreateAccount.xaml;InsertCategorie.xaml;InsertProduse.xaml;Inventar.xaml;ItemSelected.xaml;ListItem.xaml;Login.xaml;MainWindow.xaml;MenuButtonTheme.xaml;TextBoxTheme.xaml;
 
 False
 
