@@ -57,15 +57,16 @@ namespace MagazinElectronic
 
                 // sql interogation
 
-                var productsList = Utils.context.Produse.Where(b => b.Denumire.Contains(findItem)).ToList();
+                //var productsList = Utils.context.Produse.Where(b => b.Denumire.Contains(findItem)).ToList();
 
-                //var productsList =
-                //        from u in Utils.context.Produse
-                //        join i in Utils.context.Inventar on u.Inventars equals i
-                //        where u.Denumire.Contains(findItem)
-                //        select new { u.Denumire, u.CategorieProduse, };
-                   
-   
+                var productsList =
+                        from u in Utils.context.Produse
+                        join i in Utils.context.Inventar on u.IDProdus equals i.IDProdus
+                        //join k in Utils.context.CategorieProduse on u.IDCategorie equals k.IDCategorie
+                        where u.Denumire.Contains(findItem)
+                        select new { u.Denumire, i.PretUnitar, i.Cantitate };
+
+
                 Lista.ItemsSource = productsList.ToList();
 
                 e.Handled = true;

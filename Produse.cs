@@ -25,11 +25,12 @@ namespace MagazinElectronic
         public string Denumire { get; set; }
         public int IDCategorie { get; set; }
         public string DescriereProdus { get; set; }
-    
+
         public virtual CategorieProduse CategorieProduse { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inventar> Inventars { get; set; }
+
     }
 }

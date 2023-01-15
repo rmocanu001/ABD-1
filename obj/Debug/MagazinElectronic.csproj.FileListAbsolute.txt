@@ -803,3 +803,7 @@ D:\anul 3\ABD\MagazinElectronic\ABD\obj\Debug\MagazinElectronic.csproj.CopyCompl
 D:\anul 3\ABD\MagazinElectronic\ABD\obj\Debug\MagazinElectronic.exe
 D:\anul 3\ABD\MagazinElectronic\ABD\obj\Debug\MagazinElectronic.pdb
 >>>>>>> Stashed changes
+D:\anul 3\ABD\MagazinElectronic\ABD\obj\Debug\Cart.g.cs
+D:\anul 3\ABD\MagazinElectronic\ABD\obj\Debug\ItemSelected.g.cs
+D:\anul 3\ABD\MagazinElectronic\ABD\obj\Debug\Cart.baml
+D:\anul 3\ABD\MagazinElectronic\ABD\obj\Debug\ItemSelected.baml
