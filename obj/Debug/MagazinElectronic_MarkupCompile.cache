@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\anul 3\ABD\ABD\obj\Debug\
+C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\obj\Debug\
 MagazinElectronic
 none
 false
 DEBUG;TRACE
-D:\anul 3\ABD\ABD\App.xaml
+C:\Users\stefa\OneDrive\Documents\GitHub\ABD-1\App.xaml
 111405933002
 3-318357352
 23-1961604605
-51886372696
+51188026911
 AdminMenu.xaml;ButtonTheme.xaml;CreateAccount.xaml;InsertCategorie.xaml;InsertProduse.xaml;Inventar.xaml;ListItem.xaml;Login.xaml;MainWindow.xaml;MenuButtonTheme.xaml;TextBoxTheme.xaml;
 
 False

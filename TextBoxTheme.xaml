@@ -15,6 +15,7 @@
                         <Grid>
 
                             <Rectangle StrokeThickness="1"/>
+                            
                             <TextBox Margin="1"
                                      Text="{TemplateBinding Text}"
                                      BorderThickness="0"

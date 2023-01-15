@@ -19,6 +19,8 @@ namespace MagazinElectronic
     /// </summary>
     public partial class ListItem : Window
     {
+
+        private List<Produse> ProduseList;
         private Costumer _account;
         // private Account _account;
         public Action goBack;
@@ -30,7 +32,7 @@ namespace MagazinElectronic
             this.DataContext = this;
             _account = account;
             ClientName = _account.login_name;
-            
+            ProduseList = new List<Produse>();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,26 +45,36 @@ namespace MagazinElectronic
             
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
 
         private void EnterClick(object sender, KeyEventArgs e)
         {   
             if(e.Key == Key.Enter)
             {
-                MessageBox.Show("EOK");
-                string findItem = Searchitem.Text.ToString();
+                
+                
+                string findItem = SearchItem.Text.ToString();
 
                 // sql interogation
-                var productsList = Utils.context.Produse.ToList().Where(b => b.Denumire == findItem);
-
-                Lista.ItemsSource = productsList;
+                
+                var productsList = Utils.context.Produse.Where(b => b.Denumire.Contains(findItem)).ToList();
+   
+                Lista.ItemsSource = productsList.ToList();
 
                 e.Handled = true;
             }
            
+           
+        }
+
+        private void Lista_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var currentRow = Lista.Items.IndexOf(Lista.SelectedItem);//e.GetPosition(this));
+
+            if(Lista.SelectedItem != null)
+            {
+                MessageBox.Show("Merge");
+            }
         }
     }
 }

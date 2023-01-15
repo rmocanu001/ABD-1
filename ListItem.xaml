@@ -58,14 +58,18 @@
                      >
 
                 <TextBox 
-                     x:Name="Searchitem"  
+                     x:Name="SearchItem"
+                      
                      Width="250"
                      Height="50"
                      VerticalContentAlignment="Center"
                      HorizontalAlignment="Left"
                      Margin="5"
-                     PreviewKeyDown="EnterClick"
-                     Style="{StaticResource ModernTextBox}"/>
+                     PreviewKeyDown="EnterClick"/>
+                   
+                
+
+
             </StackPanel>
            
 
@@ -74,7 +78,7 @@
                             Margin="10" 
                        x:Name="Lista" 
                        d:ItemsSource="{d:SampleData ItemCount=5}" 
-                       SelectionChanged="DataGrid_SelectionChanged"
+                       MouseDoubleClick="Lista_MouseDoubleClick"
                        />
 
         </Grid>
