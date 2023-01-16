@@ -18,11 +18,11 @@ namespace MagazinElectronic
     /// <summary>
     /// Interaction logic for Inventar.xaml
     /// </summary>
-    public partial class Inventar : Window
+    public partial class InventarPage : Window
     {
         public Action goBack;
 
-        public Inventar()
+        public InventarPage()
         {
             InitializeComponent();
             loadCB();

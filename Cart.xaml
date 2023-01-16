@@ -5,10 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MagazinElectronic"
         mc:Ignorable="d"
-        Title="Cart" Height="450" Width="800">
+        Title="Cart" Height="352" Width="648">
     <Grid>
-        <DataGrid x:Name="CartGrid">
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="CartGrid" Margin="37,30,41,168">
+
         </DataGrid>
+        <TextBox x:Name="CodeTxt" Height="42" Margin="147,245,355,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" FontSize="24" TextAlignment="Center" Background="#FFDDDDDD"/>
+        <Label Content="Promo Code:" HorizontalAlignment="Left" Margin="37,245,0,0" VerticalAlignment="Top" Height="42" Width="91" FontSize="14"/>
+        <Button x:Name="PlaceOrder" HorizontalAlignment="Left" Margin="444,266,0,0" VerticalAlignment="Top" Height="43" Width="154" Content="Place Order" FontFamily="Italic" Foreground="Black" FontSize="16" FontWeight="Bold" Click="PlaceOrder_Click"/>
     </Grid>
 </Window>

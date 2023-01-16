@@ -187,8 +187,8 @@
     <Compile Include="Inventar.cs">
       <DependentUpon>Magazin.tt</DependentUpon>
     </Compile>
-    <Compile Include="Inventar.xaml.cs">
-      <DependentUpon>Inventar.xaml</DependentUpon>
+    <Compile Include="InventarPage.xaml.cs">
+      <DependentUpon>InventarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ItemSelected.xaml.cs">
       <DependentUpon>ItemSelected.xaml</DependentUpon>
@@ -239,7 +239,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Inventar.xaml">
+    <Page Include="InventarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -50,7 +50,7 @@ namespace MagazinElectronic
         }
         private void Administrare_inventar_Click(object sender, RoutedEventArgs e)
         {
-            Inventar iv = new Inventar();
+            InventarPage iv = new InventarPage();
             iv.Show();
            // this.Hide();
         }

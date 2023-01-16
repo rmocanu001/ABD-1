@@ -22,15 +22,18 @@ namespace MagazinElectronic
         List<Produse> produses;
 
         Produse produs;
+
+        List<int> quantity;
         
 
 
-        public ItemSelected(List<Produse> produses,Produse produse)
+        public ItemSelected(List<Produse> produses,Produse produse,List<int> q)
         {
             InitializeComponent();
             MessageBox.Show(produse.Denumire);
             this.produses = produses;
             this.produs = produse;
+            quantity = q;   
 
             f.Text = produs.Denumire.ToString();
             g.Text = produs.DescriereProdus.ToString();
@@ -39,8 +42,29 @@ namespace MagazinElectronic
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            produses.Add(produs);
-            this.Hide();
+
+            var quant=Int32.Parse(CantitateTB.Text.ToString());
+            if (quant!=0)
+            {
+                var qu= (from i in Utils.context.Inventar where (i.IDProdus.Equals(produs.IDProdus)) select i.Cantitate).FirstOrDefault();
+                if (qu<quant)
+                {
+                    MessageBoxButton button = MessageBoxButton.OKCancel;
+                    MessageBoxImage image = MessageBoxImage.Warning;
+                    MessageBox.Show("Cantitate indisponibila verificati cantitatea", "Alert", button, image);
+                    return;
+                }
+                produses.Add(produs);
+                quantity.Add(quant);
+                this.Hide();
+            }
+            else
+            {
+                MessageBoxButton button = MessageBoxButton.OKCancel;
+                MessageBoxImage image = MessageBoxImage.Warning;
+                MessageBox.Show("Alegeti cantitatea", "Alert", button, image);
+                return;
+            }
         }
     }
 }

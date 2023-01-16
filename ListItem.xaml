@@ -33,18 +33,18 @@
 
             <StackPanel Grid.Row="1">
 
-                <RadioButton Content="HI"
+                <RadioButton Content="Log Out"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked_1"/>
 
                 <RadioButton Content="Cart"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Click="Button_Click_1"
-                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"/>
+                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked" Unchecked="Clear_fnc"/>
 
                 <RadioButton Content="Home"
                              Height="50"

@@ -80,6 +80,8 @@ namespace MagazinElectronic
                 if (user != null)
                 {
                     ListItem items = new ListItem(user);
+                    items.goBack=delegate { this.Show(); };
+
                     items.Show();
                     this.Hide();
                 }
@@ -93,6 +95,8 @@ namespace MagazinElectronic
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             CreateAccount createAccountView = new CreateAccount();
+            createAccountView.Action=delegate { this.Show(); };
+
             createAccountView.Show();
             this.Hide();
         }

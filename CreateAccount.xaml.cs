@@ -21,6 +21,7 @@ namespace MagazinElectronic
     {
 
         public Costumer _account;
+        public Action Action;
         public CreateAccount()
         {
             InitializeComponent();
@@ -63,6 +64,7 @@ namespace MagazinElectronic
 
                 InsertAccount(_account);
                 ListItem listItem = new ListItem(_account);
+                listItem.goBack=Action;
                 listItem.Show();
                 this.Hide();
 

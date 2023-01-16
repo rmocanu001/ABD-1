@@ -22,6 +22,7 @@ namespace MagazinElectronic
 
         private List<Produse> ProduseList;
         private Costumer _account;
+        private List<int> quantity;
         // private Account _account;
         public Action goBack;
         public string ClientName { get ; set; }
@@ -33,6 +34,7 @@ namespace MagazinElectronic
             _account = account;
             ClientName = _account.login_name;
             ProduseList = new List<Produse>();
+            quantity = new List<int>(); 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -77,12 +79,14 @@ namespace MagazinElectronic
 
         private void Lista_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var currentRow = Lista.Items.IndexOf(Lista.SelectedItem);//e.GetPosition(this));
+            var currentRow = Lista.SelectedItem.ToString().Substring(13).Split(',');//e.GetPosition(this));
 
-            if(Lista.SelectedItem != null)
+            var str = currentRow[0].ToString();
+
+            if (Lista.SelectedItem != null)
             {
-                Produse produs = (Produse)Lista.Items.GetItemAt(currentRow);
-                ItemSelected itemSelected = new ItemSelected(ProduseList, produs);
+                Produse produs = (from u in Utils.context.Produse where (u.Denumire.Equals(str)) select u).ToList().First();
+                ItemSelected itemSelected = new ItemSelected(ProduseList, produs,quantity);
                 itemSelected.Show();
 
             }
@@ -90,9 +94,20 @@ namespace MagazinElectronic
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            Cart cart = new Cart(ProduseList);
+            Cart cart = new Cart(ProduseList,quantity,_account);
             cart.Show();
+        }
+        private void Clear_fnc(object sender, RoutedEventArgs e)
+        {
+            this.ProduseList.Clear();
+            this.quantity.Clear();
+            Lista.Items.Clear();
+        }
 
+        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            goBack();
         }
     }
 }
