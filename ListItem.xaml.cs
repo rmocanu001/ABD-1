@@ -101,13 +101,20 @@ namespace MagazinElectronic
         {
             this.ProduseList.Clear();
             this.quantity.Clear();
-            Lista.Items.Clear();
+            //Lista.Items.Clear();
         }
 
         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
             this.Hide();
             goBack();
+        }
+
+        private void RadioButton_Checked_2(object sender, RoutedEventArgs e)
+        {
+            MessageBoxButton button = MessageBoxButton.OKCancel;
+            MessageBoxImage image = MessageBoxImage.Warning;
+            MessageBox.Show("No bills yet", "Alert", button, image);
         }
     }
 }

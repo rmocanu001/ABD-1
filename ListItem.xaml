@@ -46,11 +46,11 @@
                              Click="Button_Click_1"
                              Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked" Unchecked="Clear_fnc"/>
 
-                <RadioButton Content="Home"
+                <RadioButton Content="Bills"
                              Height="50"
                              Foreground="White"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked_2"/>
 
                 
             </StackPanel>

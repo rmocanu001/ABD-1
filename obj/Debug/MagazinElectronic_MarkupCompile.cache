@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\anul 3\ABD\MagazinElectronic\ABD\obj\Debug\
+D:\anul 3\sem1\ABD\MagazinElectronic\ABD\obj\Debug\
 MagazinElectronic
 none
 false
 DEBUG;TRACE
-D:\anul 3\ABD\MagazinElectronic\ABD\App.xaml
+D:\anul 3\sem1\ABD\MagazinElectronic\ABD\App.xaml
 131048538913
 3-318357352
-24-47230108
-511127827209
+25-2129318726
+51-745555637
 AdminMenu.xaml;ButtonTheme.xaml;Cart.xaml;CreateAccount.xaml;InsertCategorie.xaml;InsertProduse.xaml;InventarPage.xaml;ItemSelected.xaml;ListItem.xaml;Login.xaml;MainWindow.xaml;MenuButtonTheme.xaml;TextBoxTheme.xaml;
 
-False
+True
 
